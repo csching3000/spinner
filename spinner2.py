@@ -11,18 +11,18 @@ def getNumber():
         else:
             print("Invalid Input. Please enter a #")
 
-# Getting the labels for the sections in the wheel, and creating the # of sections
-def getLabelsAndGetSlices(n):
-    l = []
+# Getting the size and label of each slice of the wheel/pie chart
+def getLabelsAndSliceSizes(n):
     s = []
+    l = []
     for i in range(n):
-        l.append(input("Enter a label for section " + str(i + 1) + ": "))
         s.append(int(100 / n))
-    return l, s
+        l.append(input("Enter a label for the slice " + str(i + 1) + ": "))
+    return s, l
 
 # requesting user input and getting # of slices for wheel/pie chart
 slices = getNumber()
-labels = getLabelsAndGetSlices(slices)
+sizes, labels = getLabelsAndSliceSizes(slices)
 
 # Create a figure and axes
 fig, ax = plt.subplots()
